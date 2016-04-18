@@ -1,7 +1,6 @@
-# Document Conversion Micro Service
-__This applicaiton can only run on a Windows based server with Office installed__
+# Spring Boot microservice
 
-This is a Spring Boot application running on Windows Server 2012 R2 that make a Runtime call to the .NET Document Converter application.
+This is a Spring Boot application
 On Startup the application will create and or clear out the temp path used for processing.
 
 ## Manual Launch
