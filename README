@@ -1,0 +1,37 @@
+# Document Conversion Micro Service
+__This applicaiton can only run on a Windows based server with Office installed__
+
+This is a Spring Boot application running on Windows Server 2012 R2 that make a Runtime call to the .NET Document Converter application.
+On Startup the application will create and or clear out the temp path used for processing.
+
+## Manual Launch
+ * java -jar .\condemned-6.6.6.jar
+ * java -D"guid.root=C:\\thinktank\\pptx\\ -jar .\condemned-6.6.6.jar 
+  * This can and should be overridden in production to a data specific drive separate from the OS drive.
+ * java -jar .\condemned-6.6.6.jar 
+  * The application.properties file is now under the config path and all variables can be modified 
+
+## Application Parameters
+ * guild.root
+  * The root path of the temp data files created with the tool. 
+ * application.exec 
+  * The path to the conversion application e.g. condemned-6.6.6.exe
+  * The application now pickes up the root path for the app dynamically and the conversion tool will automatically be deployed there.
+ * logging.level.com.protolounge.apprunner
+ * logging.level.org.springframework.web
+  * DEBUG, INFO, WARN  standard java log level flags.
+ 
+## API
+### POST
+ * [url]:[port]/pptx
+  * Request Parameter: file=[file to upload]
+ * This is the only call right now and it handles the full process:
+  * File upload
+  * Convert from ppt or pptx to images
+  * In memory zip of all images
+  * Response back to client
+  * Local file cleanup
+  
+### GET
+ * [url]:[port]/alive
+  * Just returns a simple "I'm Alive" to let you know the service is up.
