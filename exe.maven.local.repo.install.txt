@@ -1,0 +1,13 @@
+
+mvn install:install-file -Dfile=/Users/stacydecker/workspace/app-runner/condemned-6.6.6.exe -DgroupId=com.protolounge.tools -DartifactId=condemned -Dversion=6.6.6 -Dpackaging=exe
+
+mvn deploy:deploy-file -DgroupId=com.proto-lounge.tools -DartifactId=condemned -Dversion=6.6.6 -Dpackaging=exe -Dfile=/Users/stacydecker/workspace/app-runner/condemned-6.6.6.exe -Durl=[url] -DrepositoryId=[id]
+
+
+  <!-- supporting executables for windblows implementations -->
+  <dependency>
+    <groupId>com.proto-lounge.tools</groupId>
+    <artifactId>condemned</artifactId>
+    <version>6.6.6</version>
+    <type>exe</type>
+  </dependency>
